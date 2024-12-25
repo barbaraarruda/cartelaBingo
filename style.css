@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: #f3f3f3;
+}
+
+header {
+    background: #ff5722;
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.bingo-card {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+.bingo-cell {
+    width: 60px;
+    
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    font-size: 20px;
+    
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+.bingo-cell.marked {
+    background: #ff5722;
+    color: white;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #e64a19;
+}
+
+#clearButton {
+    background: #4caf50;
+    
+}
+
+#clearButton:hover {
+    background: #388e3c;
+    
+}
+
+
+#bingoMessage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #4caf50;
+    color: white;
+    font-size: 36px;
+    font-weight: bold;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s, z-index 0s 0.5s;
+}
+
+#bingoMessage.visible {
+    opacity: 1;
+    z-index: 10;
+    transition: opacity 0.5s;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    .bingo-card {
+        grid-template-columns: repeat(4, 1fr);
+        
+        gap: 8px;
+    }
+
+    .bingo-cell {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+        
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bingo-card {
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
+
+    .bingo-cell {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
